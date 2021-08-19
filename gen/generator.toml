@@ -1,0 +1,26 @@
+[general]
+library_name = "libspine"
+output_file_path = "./Lib.jl"
+module_name = "Lib"
+jll_pkg_name = "SpineRuntimes_jll"
+export_symbol_prefixes = []
+prologue_file_path = "./prologue.jl"
+use_deterministic_symbol = true
+
+printer_blacklist = [
+    "PI",
+    "PI2",
+    "DEG_RAD",
+    "RAD_DEG",
+]
+
+[codegen.macro]
+macro_mode = "basic"
+
+functionlike_macro_whitelist = [
+]
+
+ignore_header_guards = true
+ignore_header_guards_with_suffixes = ["_H_", "_H__"]
+
+ignore_pure_definition = false

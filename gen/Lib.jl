@@ -666,7 +666,7 @@ struct spSkeletonData
     pathConstraints::Ptr{Ptr{spPathConstraintData}}
 end
 
-struct spAnimationStateData
+mutable struct spAnimationStateData
     skeletonData::Ptr{spSkeletonData}
     defaultMix::Cfloat
     entries::Ptr{Cvoid}

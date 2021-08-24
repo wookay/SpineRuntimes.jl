@@ -1,0 +1,24 @@
+name: CI
+
+on: [pull_request, push]
+
+jobs:
+  Test:
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        julia-version: [1.6.2]
+        julia-arch: [x64]
+        os: [ubuntu-latest, macos-latest]
+        include:
+          - julia-version: nightly
+            os: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - uses: julia-actions/setup-julia@latest
+        with:
+          version: ${{ matrix.julia-version }}
+      - name: runtests
+        run: |
+             julia             -e 'using Pkg; Pkg.add(url="https://github.com/wookay/SpineRuntimes_jll.jl")'
+             julia --project=. -e 'using Pkg; Pkg.test()'

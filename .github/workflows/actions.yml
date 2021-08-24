@@ -22,5 +22,6 @@ jobs:
         run: |
              julia             -e 'using Pkg; Pkg.Registry.add(RegistrySpec(url="https://github.com/JuliaRegistries/General"))'
              julia             -e 'using Pkg; Pkg.Registry.add(RegistrySpec(url="https://github.com/wookay/Registro"))'
-             julia             -e 'using Pkg; Pkg.add("SpineRuntimes_jll")'
+             julia             -e 'using Pkg; Pkg.develop("SpineRuntimes_jll")'
+             julia             -e 'using Pkg; Pkg.build("SpineRuntimes_jll")'
              julia --project=. -e 'using Pkg; Pkg.test()'

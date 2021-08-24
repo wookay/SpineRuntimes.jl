@@ -55,14 +55,14 @@ function testRunner(block, jsonName::String, atlasName::String)
     pstate = spAnimationState_create(pstateData)
     spSkeleton_setToSetupPose(pskeleton)
     anims = enumerateAnimations(pskeletonData)
-    spAnimationState_setAnimationByName(pstate, 0, first(anims).name, false)
-    for anim in anims[2:end]
-        spAnimationState_addAnimationByName(pstate, 0, anim.name, false, 0.0f0)
-    end
-    timeSlice = 1.0f0 / 60.0f0
-    spSkeleton_update(pskeleton, timeSlice)
-    spAnimationState_update(pstate, timeSlice)
-    spAnimationState_apply(pstate, pskeleton)
+    # spAnimationState_setAnimationByName(pstate, 0, first(anims).name, false)
+    # for anim in anims[2:end]
+    #     spAnimationState_addAnimationByName(pstate, 0, anim.name, false, 0.0f0)
+    # end
+    # timeSlice = 1.0f0 / 60.0f0
+    # spSkeleton_update(pskeleton, timeSlice)
+    # spAnimationState_update(pstate, timeSlice)
+    # spAnimationState_apply(pstate, pskeleton)
 
     block(anims)
 
